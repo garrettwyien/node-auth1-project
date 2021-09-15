@@ -5,8 +5,7 @@ const db = require('../../data/db-config');
  */
 function find() {
   return db("users")
-  .select("user_id", "username")
-  .orderBy("user_id");
+  .select("user_id", "username");
 }
 
 /**
@@ -14,8 +13,7 @@ function find() {
  */
 function findBy(filter) {
   return db("users")
-  .where(filter)
-  .orderBy("id");
+  .where(filter);
 }
 
 /**
@@ -31,7 +29,7 @@ function findById(user_id) {
  */
 async function add(user) {
   const [id] = await db("users")
-  .insert(user_id, "id");
+  .insert(user);
   return findById(id);
 }
 
